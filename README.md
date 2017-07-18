@@ -23,7 +23,7 @@ Facebook app
 ```
 	$FB.User.getProfile(function(response){
 		if(response && !response.error){
-				$FB.log($FB.User.profile);
+			$FB.log($FB.User.profile);
 		}
 	});
 ```
