@@ -9,6 +9,10 @@ Facebook app
 ### Getting Started
 
 ```
+	// Initialize the Facebook SDK
+	// Configuration:
+	// appId and version are the only two required options.
+	// You can specify more if needed.
 	$FB.init({
 		appId: '<your-app-id>',
 		version: 'v2.9'
@@ -18,7 +22,7 @@ Facebook app
 	});
 ```
 
-### Example: Get User Profile and dump it in console
+### Example: Get User Profile
 
 ```
 	$FB.User.getProfile(function(response){
@@ -26,4 +30,28 @@ Facebook app
 			$FB.log($FB.User.profile);
 		}
 	});
+```
+
+### Example: Get User Profile with specific fields
+
+```
+	$FB.User.getProfile(function(response){
+		if(response && !response.error){
+			$FB.log($FB.User.profile);
+		}
+	}, "id, cover, email");
+```
+
+### Example: Ensure correct permission has been granted before an attempt
+
+```
+	if($FB.User.hasPermission('user_photos')){
+		$FB.User.getAlbums(function(response){
+			if(response && !response.error){
+				$FB.log($FB.User.albums);
+			}
+		});
+	}else{
+		reLogin('user_photos');
+	}
 ```
