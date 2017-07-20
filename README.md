@@ -52,6 +52,12 @@ Facebook app
 			}
 		});
 	}else{
-		reLogin('user_photos');
+		$FB.User.reLogin(function(response){
+			if(response && !response.error){
+				if(response.authResponse){
+					$FB.log("loggedin.");
+				}
+			}
+		}, 'user_photos');
 	}
 ```
