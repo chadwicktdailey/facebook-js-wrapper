@@ -39,25 +39,27 @@ Facebook app
 		if(response && !response.error){
 			$FB.log($FB.User.profile);
 		}
-	}, "id, cover, email");
+	}, "id,cover,email");
 ```
 
 ### Example: Ensure correct permission has been granted before an attempt
 
 ```
-	if($FB.User.hasPermission('user_photos')){
-		$FB.User.getAlbums(function(response){
-			if(response && !response.error){
-				$FB.log($FB.User.albums);
-			}
-		});
-	}else{
-		$FB.User.reLogin(function(response){
-			if(response && !response.error){
-				if(response.authResponse){
-					$FB.log("loggedin.");
+	function getAlbums(){
+		if($FB.User.hasPermission('user_photos')){
+			$FB.User.getAlbums(function(response){
+				if(response && !response.error){
+					$FB.log($FB.User.albums);
 				}
-			}
-		}, 'user_photos');
+			});
+		}else{
+			$FB.User.reLogin(function(response){
+				if(response && !response.error){
+					if(response.authResponse){
+						getAlbums();
+					}
+				}
+			}, 'user_photos');
+		}
 	}
 ```
