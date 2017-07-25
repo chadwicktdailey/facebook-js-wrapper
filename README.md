@@ -27,7 +27,7 @@ This project is incomplete.
 
 ### Overview
 
-> All data returned from Facebook gets stored in the methods corresponding object without the request type prefix. For example: getBooks -> books, getAdAccounts -> adAccounts etc. Find all possible endpoints, fields and parameters at the official [Facebook SDK library](https://developers.facebook.com/docs/javascript). All methods use the same structure: method(callback(response), fields, parameters). Some methods may or may not have fields or parameters available. See the official sdk reference for more information.
+> All data returned from Facebook gets stored in the methods corresponding object without the request type prefix. For example: getBooks -> books, getAdAccounts -> adAccounts etc. Find all possible endpoints, fields and parameters at the official [Facebook SDK library](https://developers.facebook.com/docs/javascript). All methods use the same structure: method(callback(response), fields, parameters). Some methods may or may not have fields or parameters available. See the official sdk reference for more information. If you have your console open error messages will automatically be written when they are returned from Facebook.
 
 ### User Object
 > Handles all user methods, edge endpoints and stores data returned from Facebook.
