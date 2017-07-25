@@ -22,10 +22,12 @@ This project is incomplete.
 	});
 ```
 
-### User
-> A user represents a person on facebook.
+### User Object
+> Handles all user methods, edge endpoints and stores data returned from Facebook.
 
-##### Example: Get User Profile
+#### Code Examples
+
+##### Get user profile
 
 ```js
 	$FB.User.getProfile(function(response){
@@ -35,17 +37,21 @@ This project is incomplete.
 	});
 ```
 
-##### Example: Get User Profile with specific fields
+###### Request specific fields
 
 ```js
 	$FB.User.getProfile(function(response){
 		if(response && !response.error){
 			$FB.log($FB.User.profile);
 		}
-	}, "id,cover,email");
+	}, 'id,cover,email');
 ```
 
-##### Example: Ensure correct permission has been granted before an attempt
+##### Edge endpoints
+> All data returned from Facebook gets stored in the methods corresponding object without the request type prefix
+> For example: getAlbums -> albums, getBooks -> books etc.
+
+###### Ensure correct permission has been given for a request
 
 ```js
 	function getAlbums(){
