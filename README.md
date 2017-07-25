@@ -8,6 +8,9 @@ This project is incomplete.
 
 ### Getting Started
 
+- [x] Load facebook-js-wrapper or facebook-js-wrapper.min
+- [x] Initialize Facebook SDK (see below)
+
 ```js
 	// Initialize the Facebook SDK
 	// Configuration:
@@ -22,12 +25,16 @@ This project is incomplete.
 	});
 ```
 
+### Overview
+
+> All data returned from Facebook gets stored in the methods corresponding object without the request type prefix. For example: getBooks -> books, getAdAccounts -> adAccounts etc. Find all possible endpoints, fields and parameters at the official [Facebook SDK library](https://developers.facebook.com/docs/javascript). All methods use the same structure: method(callback(response), fields, parameters). Some methods may or may not have fields or parameters available. See the official sdk reference for more information.
+
 ### User Object
 > Handles all user methods, edge endpoints and stores data returned from Facebook.
 
 #### Code Examples
 
-##### Get user profile
+> Get user profile with core fields returned
 
 ```js
 	$FB.User.getProfile(function(response){
@@ -37,7 +44,7 @@ This project is incomplete.
 	});
 ```
 
-###### Request specific fields
+> Request more or less fields
 
 ```js
 	$FB.User.getProfile(function(response){
@@ -47,11 +54,7 @@ This project is incomplete.
 	}, 'id,cover,email');
 ```
 
-##### Edge endpoints
-> All data returned from Facebook gets stored in the methods corresponding object without the request type prefix
-> For example: getAlbums -> albums, getBooks -> books etc.
-
-###### Ensure correct permission has been given for a request
+> Ensure correct permission has been given before attempting a request
 
 ```js
 	function getAlbums(){
