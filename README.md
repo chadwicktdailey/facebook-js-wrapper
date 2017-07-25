@@ -24,7 +24,7 @@ Facebook app
 
 ### Example: Get User Profile
 
-```Javascript
+```js
 	$FB.User.getProfile(function(response){
 		if(response && !response.error){
 			$FB.log($FB.User.profile);
@@ -34,7 +34,7 @@ Facebook app
 
 ### Example: Get User Profile with specific fields
 
-```Javascript
+```js
 	$FB.User.getProfile(function(response){
 		if(response && !response.error){
 			$FB.log($FB.User.profile);
@@ -44,7 +44,7 @@ Facebook app
 
 ### Example: Ensure correct permission has been granted before an attempt
 
-```Javascript
+```js
 	function getAlbums(){
 		if($FB.User.hasPermission('user_photos')){
 			$FB.User.getAlbums(function(response){
