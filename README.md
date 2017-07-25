@@ -4,11 +4,11 @@ This project is incomplete.
 
 ### Prerequisites
 
-Facebook app
+- [x] Facebook app
 
 ### Getting Started
 
-```Javascript
+```js
 	// Initialize the Facebook SDK
 	// Configuration:
 	// appId and version are the only two required options.
@@ -22,7 +22,10 @@ Facebook app
 	});
 ```
 
-### Example: Get User Profile
+### User
+> A user represents a person on facebook.
+
+##### Example: Get User Profile
 
 ```js
 	$FB.User.getProfile(function(response){
@@ -32,7 +35,7 @@ Facebook app
 	});
 ```
 
-### Example: Get User Profile with specific fields
+##### Example: Get User Profile with specific fields
 
 ```js
 	$FB.User.getProfile(function(response){
@@ -42,7 +45,7 @@ Facebook app
 	}, "id,cover,email");
 ```
 
-### Example: Ensure correct permission has been granted before an attempt
+##### Example: Ensure correct permission has been granted before an attempt
 
 ```js
 	function getAlbums(){
